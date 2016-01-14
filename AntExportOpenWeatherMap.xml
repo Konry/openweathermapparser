@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project FFOpenWeatherMap with Jar-in-Jar Loader">
+    <!--this file was created by Eclipse Runnable JAR file Export Wizard-->
+    <!--ANT 1.7 is required-->
+    <!--define folder properties-->
+    <property name="dir.buildfile" value="."/>
+    <property name="dir.workspace" value="${dir.buildfile}/.."/>
+    <property name="dir.jarfile" value="${dir.buildfile}"/>
+    <target name="create_run_jar">
+        <jar destfile="${dir.jarfile}/FFOpenWeatherMap.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="OpenWeatherMain"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ owmLib.jar junit.jar org.hamcrest.core_1.3.0.v201303031735.jar httpclient-4.2.3.jar httpcore-4.2.2.jar commons-logging-1.1.1.jar commons-codec-1.6.jar json-20090211.jar owm-japis-2.5.0.3.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="${dir.jarfile}/target/classes"/>
+            <zipfileset dir="${dir.jarfile}/libs" includes="owmLib.jar"/>
+            <zipfileset dir="C:/Users/Konry.KORNCOMP/.p2/pool/plugins/org.junit_4.12.0.v201504281640" includes="junit.jar"/>
+            <zipfileset dir="C:/Users/Konry.KORNCOMP/.p2/pool/plugins" includes="org.hamcrest.core_1.3.0.v201303031735.jar"/>
+            <zipfileset dir="C:/Users/Konry.KORNCOMP/.m2/repository/org/apache/httpcomponents/httpclient/4.2.3" includes="httpclient-4.2.3.jar"/>
+            <zipfileset dir="C:/Users/Konry.KORNCOMP/.m2/repository/org/apache/httpcomponents/httpcore/4.2.2" includes="httpcore-4.2.2.jar"/>
+            <zipfileset dir="C:/Users/Konry.KORNCOMP/.m2/repository/commons-logging/commons-logging/1.1.1" includes="commons-logging-1.1.1.jar"/>
+            <zipfileset dir="C:/Users/Konry.KORNCOMP/.m2/repository/commons-codec/commons-codec/1.6" includes="commons-codec-1.6.jar"/>
+            <zipfileset dir="C:/Users/Konry.KORNCOMP/.m2/repository/org/json/json/20090211" includes="json-20090211.jar"/>
+            <zipfileset dir="C:/Users/Konry.KORNCOMP/.m2/repository/net/aksingh/owm-japis/2.5.0.3" includes="owm-japis-2.5.0.3.jar"/>
+        </jar>
+    </target>
+</project>
