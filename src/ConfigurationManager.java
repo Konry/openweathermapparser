@@ -25,7 +25,7 @@ public class ConfigurationManager {
 			+ "- The storage_file_name_winddegree has the winddegree inside.\n"
 			+ "- The storage_file_name_windspeed has the windspeed inside.\n\n";
 
-	private final String versionString = "0.1.3";
+	private final String versionString = "0.1.4";
 
 	public Properties configuration = null;
 
