@@ -1,3 +1,6 @@
+import java.io.IOException;
+
+import org.json.JSONException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,5 +29,15 @@ public class OpenWeatherParserTest {
 		Assert.assertEquals("Windstill", OpenWeatherParser.analyseWindDirection(365.45f));
 		Assert.assertEquals("Windstill", OpenWeatherParser.analyseWindDirection(-5f));
 		Assert.assertEquals("Keine Winddaten", OpenWeatherParser.analyseWindDirection(Float.NaN));
+	}
+	
+	@Test
+	public void getWeatherFromOWMTest(){
+		try {
+			new OpenWeatherParser(new ConfigurationManager()).getWeatherFromOWM("Hamburg");
+		} catch (IOException | JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
